@@ -16,6 +16,6 @@ COPY CateringService3/ /var/www/html/CateringService3
 
 ## Navigate to /var/www/html/CateringService3 and run composer install
 WORKDIR /var/www/html/CateringService3
-RUN composer install
+RUN composer update
 
 EXPOSE 9000

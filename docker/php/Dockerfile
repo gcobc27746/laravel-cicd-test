@@ -11,4 +11,11 @@ RUN apt-get update -y && \
     php composer-setup.php && \
     mv composer.phar /usr/local/bin/composer
 
+## Copy all files from your project directory into /var/www/html/CateringService3
+COPY CateringService3/ /var/www/html/CateringService3
+
+## Navigate to /var/www/html/CateringService3 and run composer install
+WORKDIR /var/www/html/CateringService3
+RUN composer install
+
 EXPOSE 9000

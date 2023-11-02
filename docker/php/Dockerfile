@@ -11,6 +11,8 @@ RUN apt-get update -y && \
     php composer-setup.php && \
     mv composer.phar /usr/local/bin/composer
 
+ARG CACHEBUST=1
+
 ## Copy all files from your project directory into /var/www/html/CateringService3
 COPY CateringService3/ /var/www/html/CateringService3
 

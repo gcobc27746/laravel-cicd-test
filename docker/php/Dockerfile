@@ -23,6 +23,7 @@ RUN cp .env.example .env && \
     find . -type f -exec chmod 644 {} \; && \
     chmod -R 775 ./storage && \
     chmod -R 775 ./bootstrap/cache  && \
-    composer update
+    composer update && \
+    php artisan key:generate
 
 EXPOSE 9000

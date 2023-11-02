@@ -18,7 +18,7 @@ COPY --chown=www-data:www-data CateringService3/ /var/www/html/CateringService3
 
 ## Navigate to /var/www/html/CateringService3 and run composer install
 WORKDIR /var/www/html/CateringService3
-RUN cp .env.example .env
+RUN cp .env.example .env && \
     find . -type d -exec chmod 755 {} \; && \
     find . -type f -exec chmod 644 {} \; && \
     chmod -R 775 ./storage && \

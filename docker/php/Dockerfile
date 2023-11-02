@@ -14,12 +14,11 @@ RUN apt-get update -y && \
 ARG CACHEBUST=1
 
 ## Copy all files from your project directory into /var/www/html/CateringService3
-COPY CateringService3/ /var/www/html/CateringService3
+COPY --chown=www-data:www-data CateringService3/ /var/www/html/CateringService3
 
 ## Navigate to /var/www/html/CateringService3 and run composer install
 WORKDIR /var/www/html/CateringService3
 RUN cp .env.example .env
-    chown -R www-data:www-data . && \
     find . -type d -exec chmod 755 {} \; && \
     find . -type f -exec chmod 644 {} \; && \
     chmod -R 775 ./storage && \

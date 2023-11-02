@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx:
     container_name: cs3_nginx
-    image: nginx:cateringservice3_${BUILD_ID}
+    image: cs3_nginx:v${BUILD_ID}
     tty: true
     ports:
       - "80:80"
@@ -11,7 +11,7 @@ services:
       - php
   php:
     container_name: cs3_php
-    image: php:cateringservice3_${BUILD_ID}
+    image: cs3_php:v${BUILD_ID}
     build: php
     restart: always
     tty: true

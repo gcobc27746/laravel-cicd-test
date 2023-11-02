@@ -18,6 +18,12 @@ COPY CateringService3/ /var/www/html/CateringService3
 
 ## Navigate to /var/www/html/CateringService3 and run composer install
 WORKDIR /var/www/html/CateringService3
-RUN composer update
+RUN cp .env.example .env
+    chown -R www-data:www-data . && \
+    find . -type d -exec chmod 755 {} \; && \
+    find . -type f -exec chmod 644 {} \; && \
+    chmod -R 775 ./storage && \
+    chmod -R 775 ./bootstrap/cache  && \
+    composer update
 
 EXPOSE 9000

@@ -3,7 +3,7 @@ services:
   nginx:
     image: 192.168.0.27/cateringservice3/cs3_nginx:v${BUILD_ID}
     deploy:
-      replicas: 3
+      replicas: 2
       restart_policy:
         condition: on-failure
       placement:
@@ -16,7 +16,7 @@ services:
   php:
     image: 192.168.0.27/cateringservice3/cs3_php:v${BUILD_ID}
     deploy:
-      replicas: 3
+      replicas: 2
       restart_policy:
         condition: on-failure
       placement:

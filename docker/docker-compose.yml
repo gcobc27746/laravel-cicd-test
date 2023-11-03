@@ -1,19 +1,25 @@
 version: '3'
 services:
   nginx:
-    container_name: cs3_nginx
     image: cs3_nginx:v${BUILD_ID}
-    tty: true
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role != manager]
     ports:
       - "80:80"
       - "443:443"
     depends_on:
       - php
   php:
-    container_name: cs3_php
     image: cs3_php:v${BUILD_ID}
-    build: php
-    restart: always
-    tty: true
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.role != manager]
     ports:
       - "9000:9000"

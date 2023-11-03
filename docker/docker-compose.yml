@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: 127.0.0.1/cateringservice3/cs3_nginx:v${BUILD_ID}
+    image: 192.168.0.27/cateringservice3/cs3_nginx:v${BUILD_ID}
     deploy:
       replicas: 3
       restart_policy:
@@ -14,7 +14,7 @@ services:
     depends_on:
       - php
   php:
-    image: 127.0.0.1/cateringservice3/cs3_php:v${BUILD_ID}
+    image: 192.168.0.27/cateringservice3/cs3_php:v${BUILD_ID}
     deploy:
       replicas: 3
       restart_policy:

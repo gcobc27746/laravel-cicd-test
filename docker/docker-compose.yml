@@ -9,8 +9,8 @@ services:
       placement:
         constraints: [node.role != manager]
     ports:
-      - "80:80"
-      - "443:443"
+      - "8081:80"
+      - "1443:443"
     depends_on:
       - php
   php:
